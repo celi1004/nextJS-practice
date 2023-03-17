@@ -32,7 +32,7 @@ export async function getStaticPaths() {
     client.close();
 
     return {
-        fallback: false, // 아래 해당사항 없는 params 입력 시 404에러 발생시킴
+        fallback: "blocking", // 아래 해당사항 없는 params 입력 시 404에러 발생시킴
         paths: meetups.map(meetup => ({ params: {meetupId: meetup._id.toString() }}))
     }
 } 
